@@ -1,3 +1,8 @@
+/*
+ * (c) Copyright 2018, Warwick Molloy
+ * DOM Demo
+ * License: MIT
+ */
 
 
 function getListOfLines(src) {
