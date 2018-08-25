@@ -3,6 +3,10 @@ body {
     background-color: white;
 }
 
+pre {
+    margin: 4px, 2px;
+}
+
 .base {
     margin: 10px 5px;
     border-radius: 5px;
@@ -53,6 +57,12 @@ body {
     min-height: 200px;
     background-color: rgb(250, 240, 180);
     color: black;
+}
+
+.row-set {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .ui {
@@ -155,6 +165,7 @@ body {
     grid-area: ui-task-code;
     font-family: 'Courier New', Courier, monospace;
     font-size: 12px;
+    overflow-wrap: break-word;
     padding: 5px;
     margin: 5px;
     border: 1px solid gray;

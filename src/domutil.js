@@ -175,8 +175,17 @@ function Element(arg) {
       return new ElementList({children: elementList, parent: this.element})
     },
     selectFirst: function(selector) {
-      var element = this.element.querySelector(selector)
-      return new Element({element: element})
+      if (typeof(selector) === 'string') {
+        var element = this.element.querySelector(selector)
+        if (!element) {
+          console.error(`Selector ${selector} did not match an element`)
+          return undefined
+        }
+        return new Element({element: element})
+      } else {
+        console.error(`Not a valid selector string: ${JSON.stringify(selector)}`)
+        return undefined
+      }
     },
     selectorPath: function() {
       var element = this.element

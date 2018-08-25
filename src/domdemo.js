@@ -31,6 +31,14 @@ function writeToDemo(task) {
   task()
   updateDemoSourceWindow()
   updateDemoPageWindow()
+  updateEvalOptions()
+}
+
+function resetDemoHtml() {
+  writeToDemo( () => demoBody().html(`
+    <h1 id="demo1">Demo Document</h1>
+    <p id="demo2">Absolutely anything could happen here</p>
+  `))
 }
 
 function uiTaskInnerHtml(event) {
@@ -40,7 +48,6 @@ function uiTaskInnerHtml(event) {
 }
 
 function updateEvalOptions() {
-  var createType = dom.findElement({id:'createElement-type'})
   var appendType = dom.findElement({id:'appendElement-type'})
   var options = '<option value="#xbody">body</option>\n'
   demoBody().children().each( function(tag){
@@ -57,6 +64,33 @@ function updateEvalOptions() {
   appendType.html(options)
 }
 
+function getTargetSelector(appendType) {
+  var target
+  if (appendType.value == '#xbody') {
+    target = demoBody()
+  } else {
+    target = demoBody().selectFirst(appendType.value)
+  }
+  return target
+}
+
+function updateEvalSource() {
+  var uiTask = dom.findElement({id:'task-Eval'})
+  var uiTaskCode = uiTask.selectFirst('.ui-task-code')
+  var createType = dom.findElement({id:'createElement-type'})
+  var text = dom.findElement({id:'newElementText'})
+  var appendType = dom.findElement({id:'appendElement-type'})
+  var target
+  if (appendType.value == '#xbody') {
+    target = 'document.body'
+  } else {
+    target = `document.body.querySelector('${appendType.value}')`
+  }
+  uiTaskCode.text(`var node = document.createElement( '${createType.value}' )
+  node.innerText = '${text.value}'
+  ${target}.appendChild(node)`)
+}
+
 function uiTaskEval(event) {
   var text = dom.findElement({id:'newElementText'})
   var createType = dom.findElement({id:'createElement-type'})
@@ -64,30 +98,31 @@ function uiTaskEval(event) {
 
   var created = document.createElement(createType.value)
   created.innerText = text.value
-  var target
-  if (appendType.value == '#xbody') {
-    target = demoBody()
-  } else {
-    target = demoBody().selectFirst(appendType.value)
-  }
+  var target = getTargetSelector(appendType)
   writeToDemo( () => target.element.appendChild( created ) )
 }
 
-function extendAccordianButtons() {
-  var task = dom.findElement({id:'task-Eval'})
-  var button = task.selectFirst('div.ui-task-header>.ui-accordian')
-  button.on({
-    event: dom.event.CLICK,
-    handler: updateEvalOptions
-  })
+function setupInputChangeObservers() {
+  var evalParams = dom
+    .findElement({id: 'task-Eval'})
+    .selectFirst('div.task-parameters')
+    evalParams.on({
+      event:dom.event.CHANGE,
+      handler:updateEvalSource
+    })
 }
 
 function setupUiTaskButtons() {
   var dom = new DOM()
   dom.buttonOn({
+    event: dom.event.CLICK,
+    id: 'resetDemo',
+    handler: resetDemoHtml
+  })
+  dom.buttonOn({
     event:dom.event.CLICK,
     id:'btn-task-innerHTML',
-    handler:uiTaskInnerHtml
+    handler: uiTaskInnerHtml
   })
   dom.buttonOn({
     event: dom.event.CLICK,
@@ -99,7 +134,8 @@ function setupUiTaskButtons() {
 function setup() {
   setupUiTaskButtons()
   setupUiAccordianButtons()
-  extendAccordianButtons()
+  setupInputChangeObservers()
+  resetDemoHtml()
   updateDemoPageWindow()
   updateDemoSourceWindow()
 }

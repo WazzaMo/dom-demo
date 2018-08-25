@@ -21,15 +21,17 @@
         </div>
 
         <div class="demo">
-            <h3>Demo Output</h3>
+            <div class="row-set">
+                <h3>Demo Output</h3>
+                <button class="ui-task-button" id="resetDemo">Reset Demo HTML</button>
+            </div>
             <div class="demo-page" id="__demo-page"></div>
             <h3>Demo HTML</h3>
             <div class="demo-output" id="output"></div>
             <div id="demo-doc" hidden=true>
                 <xhtml>
                     <xbody id="xbody">
-                        <h1 id="demo1">Demo Document</h1>
-                        <p id="demo2">Absolutely anything could happen here</p>
+                        
                     </xbody>
                 </xhtml>
             </div>
@@ -92,6 +94,33 @@
                     _Element.appendChild(node)<br>
                 </div>
             </div>
+
+            <div class="ui-task ui-task-collapsed" id="task-Attrib">
+                <div class="ui-task-header">
+                    <b><em>setAttribute() to Hide</em></b>
+                    <button class="ui-accordian">+</button>
+                </div>
+                <button id="btn-task-Eval" class="ui-task-button collapse-away">
+                    Apply
+                </button>
+                <div class="ui-task-description">
+                    Hides an element by setting the 'hidden'
+                    attribute to <em>true</em>
+                </div>
+                <div class="task-parameters collapse-away">
+                    <div class="label">_Element</div>
+                    <select name="parameter" id="appendElement-type">
+                        <option value="div">"div"</option>
+                        <option value="h1">"h1"</option>
+                        <option value="p">"p"</option>
+                    </select>
+                </div>
+                <div class="ui-task-code collapse-away">
+                    var element = document.body.querySelector(_Element)<br>
+                    element.setAttribute('hidden', true)<br>
+                </div>
+            </div>
+
         </div>
 
     </div>
