@@ -33,28 +33,19 @@ function setupInputChangeObservers() {
   })
 }
 
-function setupUiTaskButtons() {
-  var dom = new DOM()
+function setupResetDemoHtmlButton() {
   dom.buttonOn({
     event: dom.event.CLICK,
     id: 'resetDemo',
     handler: resetDemoHtml
   })
-  dom.buttonOn({
-    event:dom.event.CLICK,
-    id:'btn-task-innerHTML',
-    handler: uiTaskInnerHtml
-  })
-  dom.buttonOn({
-    event: dom.event.CLICK,
-    id:'btn-task-Eval',
-    handler: uiTaskEval
-  })
-  dom.buttonOn({
-    event: dom.event.CLICK,
-    id: 'btn-task-setAttrib',
-    handler: uiTaskSetAttrib
-  })
+}
+
+function setupUiTaskButtons() {
+  setupResetDemoHtmlButton()
+  setupTaskInnerHtmlButton()
+  setupTaskCreateAppendButton()
+  setupTaskSetAttribButton()
 }
 
 function setup() {

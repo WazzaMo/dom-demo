@@ -42,3 +42,11 @@ function uiTaskEval(event) {
   var target = getTargetSelector(appendType)
   writeToDemo( () => target.element.appendChild( created ) )
 }
+
+function setupTaskCreateAppendButton() {
+  dom.buttonOn({
+    event: dom.event.CLICK,
+    id:'btn-task-Eval',
+    handler: uiTaskEval
+  })
+}

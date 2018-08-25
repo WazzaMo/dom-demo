@@ -9,3 +9,11 @@ function uiTaskInnerHtml(event) {
 
   writeToDemo( ()=> demoBody().html(htmlInput.element.value))
 }
+
+function setupTaskInnerHtmlButton() {
+  dom.buttonOn({
+    event:dom.event.CLICK,
+    id:'btn-task-innerHTML',
+    handler: uiTaskInnerHtml
+  })
+}

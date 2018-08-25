@@ -21,3 +21,11 @@ function uiTaskSetAttrib(event) {
   var target = demoBody().selectFirst(elementParam.value)
   writeToDemo( () => target.attributes().set('hidden', true))
 }
+
+function setupTaskSetAttribButton() {
+  dom.buttonOn({
+    event: dom.event.CLICK,
+    id: 'btn-task-setAttrib',
+    handler: uiTaskSetAttrib
+  })
+}
