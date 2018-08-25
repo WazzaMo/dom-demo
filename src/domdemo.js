@@ -27,11 +27,21 @@ function updateDemoPageWindow() {
   demoPage().html( _html )
 }
 
+function updateOptionChoices() {
+  var selectToUpdate = [
+    'appendElement-type', 'hideElement-type'
+  ]
+  for(var idSelect of selectToUpdate) {
+    var selectElement = dom.findElement({id:idSelect})
+    updateTaskParameterOptions(selectElement)
+  }
+}
+
 function writeToDemo(task) {
   task()
   updateDemoSourceWindow()
   updateDemoPageWindow()
-  updateEvalOptions()
+  updateOptionChoices()
 }
 
 function resetDemoHtml() {
@@ -47,8 +57,7 @@ function uiTaskInnerHtml(event) {
   writeToDemo( ()=> demoBody().html(htmlInput.element.value))
 }
 
-function updateEvalOptions() {
-  var appendType = dom.findElement({id:'appendElement-type'})
+function updateTaskParameterOptions(selectElement) {
   var options = '<option value="#xbody">body</option>\n'
   demoBody().children().each( function(tag){
     if (tag.hasId()) {
@@ -61,7 +70,7 @@ function updateEvalOptions() {
       </option>`
     }
   })
-  appendType.html(options)
+  selectElement.html(options)
 }
 
 function getTargetSelector(appendType) {
@@ -102,14 +111,49 @@ function uiTaskEval(event) {
   writeToDemo( () => target.element.appendChild( created ) )
 }
 
+function updateSource(mapping, template) {
+  var newSource = template
+  for(var key in mapping) {
+    var id = mapping[key]
+    var element = dom.findElement({id: id})
+    var regex = new RegExp(`{{${key}}}`, ['g'])
+    var selector = element.value
+    if (selector === '#xbody') {
+      selector = 'body'
+    }
+    newSource = newSource.replace(regex, selector)
+  }
+  return newSource
+}
+
+function updateSetAttribSource() {
+  var mapping = {_Element: 'hideElement-type'}
+  var template = `
+    var element = document.body.querySelector('{{_Element}}')
+    element.setAttribute('hidden', true)
+  `
+  dom
+    .findElement({id:'task-SetAttrib'})
+    .selectFirst('.ui-task-code')
+    .text(updateSource(mapping, template))
+}
+
 function setupInputChangeObservers() {
   var evalParams = dom
     .findElement({id: 'task-Eval'})
     .selectFirst('div.task-parameters')
-    evalParams.on({
-      event:dom.event.CHANGE,
-      handler:updateEvalSource
-    })
+  evalParams.on({
+    event:dom.event.CHANGE,
+    handler:updateEvalSource
+  })
+
+  var setAttribParams = dom
+    .findElement({id:'task-SetAttrib'})
+    .selectFirst('div.task-parameters')
+  setAttribParams.on({
+    event: dom.event.CHANGE,
+    handler: updateSetAttribSource
+  })
 }
 
 function setupUiTaskButtons() {
