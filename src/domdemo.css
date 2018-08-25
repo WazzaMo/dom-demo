@@ -1,16 +1,12 @@
 
 body {
-    background-color: white;
-}
-
-pre {
-    margin: 4px, 2px;
+    background-color: #666;
 }
 
 .base {
     margin: 10px 5px;
     border-radius: 5px;
-    background-color: #777;
+    background-color: #2E2E2A;
     display: grid;
     grid-template: 
         "intro intro" auto
@@ -21,10 +17,29 @@ pre {
 
 .intro {
     grid-area: intro;
-    background-color: #AAA;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.intro-text {
+    background-color: #585050;
     border-radius: 5px;
-    color: black;
+    color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin:5px;
+    padding:5px;
+    width: 57%;
+}
+
+.intro-author {
+    background-color: #585050;
+    border-radius: 5px;
+    color: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10pt;
+    text-align: center;
+    vertical-align: bottom;
     margin:5px;
     padding:5px;
 }

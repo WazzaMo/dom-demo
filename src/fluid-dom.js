@@ -1,5 +1,7 @@
 /*
- * Reusable Utility Functions
+ * Fluid DOM for JavaScript
+ * (c) Copyright 2018 Warwick Molloy
+ * Available under the MIT License
  */
 
 const
