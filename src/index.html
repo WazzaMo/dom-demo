@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>DOM Demonstration</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="domdemo.css" />
+    <script src="domutil.js"></script>
+    <script src="docToSrc.js"></script>
+    <script src="domdemo.js"></script>
+</head>
+<body>
+    <div class="base">
+        <div class="intro">
+            <h1>Overview</h1>
+            <p>
+                This demonstration shows different ways to manipulate the DOM to change the page.
+            </p>
+        </div>
+
+        <div class="demo">
+            <h3>Demo Output</h3>
+            <div class="demo-page" id="__demo-page"></div>
+            <h3>Demo HTML</h3>
+            <div class="demo-output" id="output"></div>
+            <div id="demo-doc" hidden=true>
+                <xhtml>
+                    <xbody>
+                        <h1 id="demo1">Demo Document</h1>
+                        <p id="demo2">Absolutely anything could happen here</p>
+                    </xbody>
+                </xhtml>
+            </div>
+        </div>
+
+        <div class="ui">
+            <div class="ui-task ui-task-collapsed" id="task-innerHTML">
+                <div class="ui-task-header">
+                    <b><em>Replace with innerHTML</em></b>
+                    <button class="ui-accordian">+</button>
+                </div>
+                <button id="btn-task-innerHTML" class="ui-task-button collapse-away">
+                    Apply
+                </button>
+                <div class="ui-task-description">
+                    Replaces a part of the document, inside the body,
+                    with HTML template directly.
+                </div>
+                <textarea class="task-parameters collapse-away"
+                    name="js-value-innerHTML" id="innerHTMLValue"
+                    placeholder="&lt;b&gt;Hi There&lt;/b&gt;"
+                    rows="4" cols="40" value=""
+                ></textarea>
+                <div class="ui-task-code collapse-away">
+                    document.body.innerHTML = _Value
+                </div>
+            </div>
+
+            <div class="ui-task ui-task-collapsed" id="task-Eval">
+                <div class="ui-task-header">
+                    <b><em>createElement() then appendChild()</em></b>
+                    <button class="ui-accordian">+</button>
+                </div>
+                <button id="btn-task-Eval" class="ui-task-button collapse-away">
+                    Apply
+                </button>
+                <div class="ui-task-description">
+                    Creates an element in the document and
+                    appends it after the chosen element by tagName.
+                </div>
+                <div class="task-parameters collapse-away">
+                    <div class="label">_Text</div>
+                    <input type="text" id="newElement">
+                    <div class="label">_Type</div>
+                    <select name="parameter" id="createElement-type">
+                        <option value="div">"div"</option>
+                        <option value="h1">"h1"</option>
+                        <option value="p">"p"</option>
+                    </select>
+                    <div class="label">_Element</div>
+                    <select name="parameter" id="createElement-type">
+                        <option value="div">"div"</option>
+                        <option value="h1">"h1"</option>
+                        <option value="p">"p"</option>
+                    </select>
+                </div>
+                <div class="ui-task-code collapse-away">
+                    var node = document.createElement( _Type )<br>
+                    node.innerText = _Text<br>
+                    _Element.appendChild(node)<br>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

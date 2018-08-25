@@ -1,0 +1,161 @@
+
+body {
+    background-color: white;
+}
+
+.base {
+    margin: 10px 5px;
+    border-radius: 5px;
+    background-color: #777;
+    display: grid;
+    grid-template: 
+        "intro intro" auto
+        "demo ui" auto/ 7fr 5fr;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    min-width: 1020px;
+}
+
+.intro {
+    grid-area: intro;
+    background-color: #AAA;
+    border-radius: 5px;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin:5px;
+    padding:5px;
+}
+
+.demo {
+    grid-area: demo;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgb(240, 220, 120);
+    color: #333;
+}
+
+.demo-output {
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid #AA7;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+    min-height: 200px;
+    background-color: rgb(250, 240, 180);
+    color:black;
+}
+
+.demo-page {
+    border: 1px solid #AA7;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+    min-height: 200px;
+    background-color: rgb(250, 240, 180);
+    color: black;
+}
+
+.ui {
+    grid-area: ui;
+    border-radius: 5px;
+    background-color: #FEA;
+    color: white;
+    margin: 5px;
+    padding:5px;
+}
+
+.ui-task {
+    background-color: #444;
+    border: 1px solid #888;
+    border-radius: 4px;
+    margin: 5px;
+    padding: 5px;
+    display: grid;
+}
+
+.ui-task-collapsed {
+    grid-template:
+        "ui-task-header" auto
+        "ui-task-description" auto
+        "ui-task-code" 0px
+        "entry" 0px
+        "task-button" 0px / 1fr;
+}
+
+.ui-task-expanded {
+    grid-template:
+        "ui-task-header ui-task-header" auto
+        "ui-task-code ui-task-code" auto
+        "entry ui-task-description" 1fr
+        "entry task-button" auto / 1fr 1fr;
+}
+
+.ui-task-header {
+    grid-area: ui-task-header;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    text-align: centre;
+    align-content: center;
+    padding: 5px;
+    margin: 5px;
+}
+
+.ui-task-description {
+    grid-area: ui-task-description;
+    padding: 1px 5px;
+}
+
+.task-parameters {
+    grid-area: entry;
+    margin:5px;
+    font-size: 16px;
+    min-width:100px;
+}
+
+.label {
+    padding: 10px 5px 0px 5px;
+}
+
+.ui-task-button {
+    grid-area: task-button;
+    background-color: #E52;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    padding: 5px;
+    margin:5px;
+    border: 2px solid #E64;
+    border-radius: 3px;
+}
+
+.ui-accordian {
+    margin: 0px 0px 0px 20px;
+    background-color: white;
+    color: #333;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    border: 2px solid white;
+    border-radius: 3px;
+    transition: background-color,color 300ms ease 0s;
+    width: 100px;
+}
+
+.ui-accordian:hover {
+    border: 2px solid white;
+    background-color: #333;
+    color:white;
+}
+
+.ui-accordian:active {
+    background-color: #AAA;
+    border: 2px solid white;
+}
+
+.ui-task-code {
+    grid-area: ui-task-code;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 12px;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid gray;
+}
