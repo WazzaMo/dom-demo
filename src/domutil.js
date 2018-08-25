@@ -143,10 +143,17 @@ function Element(arg) {
     docMatcher: matcher,
     element: element,
     parent: element.parentElement,
+    value: element.value,
     type: 'Element',
     arg: arg,
     isSingle: true,
     // -- methods --
+    children: function() {
+      return new ElementList({
+        children: this.element.children,
+        parent: this.element
+      })
+    },
     expect: function(tagName) {
       if (this.element.tagName === tagName) {
         return this
@@ -154,8 +161,14 @@ function Element(arg) {
         console.error(`Expected ${tagName} but Actual ${element.tagName}`)
       }
     },
+    getId: function() {
+      return this.attributes().get('id')
+    },
     getParent: function() {
       return new Element({element: this.element.parentElement})
+    },
+    hasId: function() {
+      return this.attributes().has('id')
     },
     selectAll: function(selector) {
       var elementList = this.element.querySelectorAll(selector)
@@ -183,6 +196,9 @@ function Element(arg) {
       }
       nodeList.reverse()
       return nodeList.reduce( (parent,child) => `${parent}>${child}` )
+    },
+    tagName: function() {
+      return this.element.tagName
     },
     text: function(_text) {
       if (!!_text) {

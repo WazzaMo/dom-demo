@@ -8,6 +8,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="domdemo.css" />
     <script src="domutil.js"></script>
     <script src="docToSrc.js"></script>
+    <script src="accordian.js"></script>
     <script src="domdemo.js"></script>
 </head>
 <body>
@@ -26,7 +27,7 @@
             <div class="demo-output" id="output"></div>
             <div id="demo-doc" hidden=true>
                 <xhtml>
-                    <xbody>
+                    <xbody id="xbody">
                         <h1 id="demo1">Demo Document</h1>
                         <p id="demo2">Absolutely anything could happen here</p>
                     </xbody>
@@ -71,7 +72,7 @@
                 </div>
                 <div class="task-parameters collapse-away">
                     <div class="label">_Text</div>
-                    <input type="text" id="newElement">
+                    <input type="text" id="newElementText">
                     <div class="label">_Type</div>
                     <select name="parameter" id="createElement-type">
                         <option value="div">"div"</option>
@@ -79,7 +80,7 @@
                         <option value="p">"p"</option>
                     </select>
                     <div class="label">_Element</div>
-                    <select name="parameter" id="createElement-type">
+                    <select name="parameter" id="appendElement-type">
                         <option value="div">"div"</option>
                         <option value="h1">"h1"</option>
                         <option value="p">"p"</option>
