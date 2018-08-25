@@ -43,10 +43,8 @@ function makeConsistentIndent(baseLen, line) {
   var adjustedLine
   if (hasAnyNonSpaceCharacter(prefix)) {
     adjustedLine = makeSpacePadding(baseLen) + line
-    // console.log(`padded:${adjustedLine}||Padding was|${makeSpacePadding(baseLen)}|`)
   } else {
     adjustedLine = line.substr(baseLen - TRIM_BUFFER)
-    // console.log(`trimmed:${adjustedLine} | BaseLen=${baseLen}  line=[${line}]`)
   }
   return adjustedLine
 }
@@ -64,6 +62,7 @@ function makeSrcFromDom(root) {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/xhtml/g, 'html')
+    .replace(/xhead/g, 'head')
     .replace(/xbody/g, 'body')
     ;
   var unIndented = removeIndent(encodeSrc)
