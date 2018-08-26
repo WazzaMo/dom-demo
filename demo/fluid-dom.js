@@ -210,12 +210,15 @@ function Element(arg) {
         var _class = element.getAttribute('class')
         if (_id) {
           nodeList.push( '#'+_id )
-        } else if (_class) {
-          nodeList.push( '.'+_class )
+          element = null // break out
         } else {
-          nodeList.push( element.tagName )
+          if (_class) {
+            nodeList.push( '.'+_class )
+          } else {
+            nodeList.push( element.tagName )
+          }
+          element = element.parentElement
         }
-        element = element.parentElement
       }
       nodeList.reverse()
       return nodeList.reduce( (parent,child) => `${parent}>${child}` )
@@ -242,6 +245,15 @@ function Element(arg) {
       var totalHtml = `${this.html()}${_html}`
       this.html(totalHtml)
       return this
+    },
+    prepend: function(_html) {
+      var totalHtml = `${_html}${this.html()}`
+      this.html(totalHtml)
+      return this
+    },
+    remove: function() {
+      this.element.remove()
+      return undefined
     },
     attributes: function() {
       return new Attributes(this.element)
