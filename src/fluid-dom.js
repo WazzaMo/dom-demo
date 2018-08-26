@@ -119,20 +119,25 @@ function Element(arg) {
   var keyType = undefined
   var matcher
   var element = arg.element
+  var isValid
 
   if (!!element) {
     keyType = DOC_KEY_ELEMENT
     matcher = 'ELEMENT: ' + element.tagName
+    isValid = !!element
   } else if (!!id) {
     keyType = DOC_KEY_ID
     element = document.getElementById(id)
     matcher = id
+    isValid = !!element
   } else if (!!selector) {
     keyType = DOC_KEY_SELECTOR
     matcher = selector
     element = document.querySelector(selector)
+    isValid = !!element
   } else {
     providesOne(['id', 'selector'], arg)
+    isValid = false
     element = {
       tagName: `NO MATCH by ${arg}`,
       parentElement: undefined,
@@ -144,8 +149,8 @@ function Element(arg) {
     docKey: keyType,
     docMatcher: matcher,
     element: element,
-    parent: element.parentElement,
-    value: element.value,
+    parent: isValid ? element.parentElement : undefined,
+    value: isValid ? element.value : undefined,
     type: 'Element',
     arg: arg,
     isSingle: true,
@@ -171,6 +176,9 @@ function Element(arg) {
     },
     hasId: function() {
       return this.attributes().has('id')
+    },
+    exists: function() {
+      return isValid
     },
     selectAll: function(selector) {
       var elementList = this.element.querySelectorAll(selector)
