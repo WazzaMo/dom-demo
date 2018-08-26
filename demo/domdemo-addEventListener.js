@@ -91,7 +91,6 @@ function uiTaskAddEventListener(event) {
   } else {
     showResult(ID_TASK_ADDEVENTLISTENER, result.error, true)
   }
-  // writeToDemo( () => {})
 }
 
 function setupEventNameOptions() {
