@@ -98,7 +98,11 @@ function Classes(element, elementObject) {
       return this
     },
     add: function(_class) {
-      element.classList.add(_class)
+      if (!! _class && _class.length > 0) {
+        element.classList.add(_class)
+      } else {
+        console.error(`Class name given was "${_class}" - it must not be empty!`)
+      }
       return this
     },
     remove: function(_class) {
