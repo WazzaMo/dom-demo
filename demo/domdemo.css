@@ -56,10 +56,16 @@ h1.intro-text {
 }
 
 p.intro-author {
-    margin: 30px 0px;
+    margin: 10px 0px;
     padding: 10px 0;
     background-color: #113;
     width: 200px;
+}
+
+a.intro-author {
+    background-color: white;
+    color: #113;
+    padding: 5px 20px;
 }
 
 .demo {
