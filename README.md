@@ -2,7 +2,7 @@
 
 An interactive DOM Demo.
 
-[Try it Out](./demo)
+[Try it Out](https://wazzamo.github.io/dom-demo/demo/)
 
 Features:
 - Demonstration Formatted Output
