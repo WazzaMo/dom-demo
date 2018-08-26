@@ -32,6 +32,17 @@ function updateEvalSource() {
   ${target}.appendChild(node)`)
 }
 
+function setTaskEvalInputValueChangeObserver() {
+  var evalParams = dom
+    .findElement({id: 'task-Eval'})
+    .selectFirst('div.task-parameters')
+  evalParams.on({
+    event:dom.event.CHANGE,
+    handler:updateEvalSource
+  })
+  updateEvalSource()
+}
+
 function uiTaskEval(event) {
   var text = dom.findElement({id:'newElementText'})
   var createType = dom.findElement({id:'createElement-type'})

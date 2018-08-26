@@ -117,7 +117,8 @@ body {
         "ui-task-header ui-task-header" auto
         "ui-task-code ui-task-code" auto
         "entry ui-task-description" 1fr
-        "entry task-button" auto / 1fr 1fr;
+        "entry task-button" auto
+        "result result"  / 1fr 1fr;
 }
 
 .ui-task-header {
@@ -140,6 +141,24 @@ body {
     margin:5px;
     font-size: 16px;
     min-width:100px;
+}
+
+.task-result {
+    grid-area: result;
+    margin:5px;
+    padding: 5px;
+    font-size: 1em;
+    min-width: 100px;
+    background-color: #EEE;
+    color: black;
+    border-radius: 3px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.task-result-error {
+    background-color: #800;
+    color: white;
+    font-size: 1.2em;
 }
 
 .label {

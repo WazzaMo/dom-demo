@@ -77,3 +77,15 @@ function updateSource(mapping, template) {
   }
   return newSource
 }
+
+function showResult(taskId, message, isError) {
+  var result = dom
+    .findElement({id: taskId})
+    .selectFirst('.task-result')
+  if (!! isError) {
+    result.classes().set('task-result-error')
+  } else {
+    result.classes().remove('task-result-error')
+  }
+  result.text(message)
+}

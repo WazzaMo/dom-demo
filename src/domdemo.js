@@ -7,7 +7,7 @@
 
 function updateOptionChoices() {
   var selectToUpdate = [
-    'appendElement-type', 'hideElement-type'
+    'appendElement-type', 'hideElement-type', 'askElement-type'
   ]
   for(var idSelect of selectToUpdate) {
     var selectElement = dom.findElement({id:idSelect})
@@ -16,21 +16,10 @@ function updateOptionChoices() {
 }
 
 function setupInputChangeObservers() {
-  var evalParams = dom
-    .findElement({id: 'task-Eval'})
-    .selectFirst('div.task-parameters')
-  evalParams.on({
-    event:dom.event.CHANGE,
-    handler:updateEvalSource
-  })
-
-  var setAttribParams = dom
-    .findElement({id:'task-SetAttrib'})
-    .selectFirst('div.task-parameters')
-  setAttribParams.on({
-    event: dom.event.CHANGE,
-    handler: updateSetAttribSource
-  })
+  setTaskInnerHtmlChangeObserver()
+  setTaskEvalInputValueChangeObserver()
+  setTaskSetAttribChangeObserver()
+  setTaskGetAttribChangeObserver()
 }
 
 function setupResetDemoHtmlButton() {
@@ -46,9 +35,11 @@ function setupUiTaskButtons() {
   setupTaskInnerHtmlButton()
   setupTaskCreateAppendButton()
   setupTaskSetAttribButton()
+  setupTaskGetAttribButton()
 }
 
 function setup() {
+  updateOptionChoices()
   setupUiTaskButtons()
   setupUiAccordianButtons()
   setupInputChangeObservers()

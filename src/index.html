@@ -13,6 +13,7 @@
     <script src="domdemo-innerHtml.js"></script>
     <script src="domdemo-createAppend.js"></script>
     <script src="domdemo-setAttribute.js"></script>
+    <script src="domdemo-getAttribute.js"></script>
     <script src="domdemo.js"></script>
 </head>
 <body>
@@ -144,6 +145,39 @@
                 <div class="ui-task-code collapse-away">
                     var element = document.body.querySelector(_Element)<br>
                     element.setAttribute('hidden', true)<br>
+                </div>
+            </div>
+
+            <div class="ui-task ui-task-collapsed" id="task-GetAttrib">
+                <div class="ui-task-header">
+                    <b><em>getAttribute() to Get Info</em></b>
+                    <button class="ui-accordian">+</button>
+                </div>
+                <button id="btn-task-getAttrib" class="ui-task-button collapse-away">
+                    Apply
+                </button>
+                <div class="ui-task-description">
+                    Gets any attribute on an element. You can store
+                    info in a "data-[X]" attribute. This will alert
+                    if the requested attribute isn't present.
+                </div>
+                <div class="task-parameters collapse-away">
+                    <div class="label">_Element</div>
+                    <select name="parameter" id="askElement-type">
+                        <option value="div">"div"</option>
+                        <option value="h1">"h1"</option>
+                        <option value="p">"p"</option>
+                    </select>
+                    <div class="label">Attribute Name</div>
+                    <input class="text" id="getAttributeName">
+                </div>
+                <div class="task-result collapse-away">
+                    // --- No output yet ---
+                </div>
+                <div class="ui-task-code collapse-away">
+                    var element = document.body.querySelector(_Element)<br>
+                    var value = element.getAttribute(_Name)<br>
+                    console.log(value)
                 </div>
             </div>
 
