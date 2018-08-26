@@ -14,16 +14,23 @@
     <script src="domdemo-createAppend.js"></script>
     <script src="domdemo-setAttribute.js"></script>
     <script src="domdemo-getAttribute.js"></script>
+    <script src="domdemo-removeAttribute.js"></script>
+    <script src="domdemo-addClass.js"></script>
     <script src="domdemo.js"></script>
 </head>
 <body>
     <div class="base">
         <div class="intro">
             <div class="intro-text">
-                <h1>Overview</h1>
+                <h1 class="intro-text">JavaScript DOM Lab</h1>
+            </div>
+
+            <div class="intro-text">
                 <p>
                     This page shows some different ways to use the DOM
-                    to change the page.
+                    to change the page. It does not cover
+                    <em>every possibility</em> but tries to cover
+                    enough to make a good start.
                 </p>
                 <p>
                     Try expanding some of the tasks on the right
@@ -31,11 +38,13 @@
                     the changes to see how it affects the Demo Output (preview)
                     and the HTML code.
                 </p>
+                
             </div>
+
             <div class="intro-author">
-                <p>Warwick Molloy</p>
-                <p>(c) Copyright 2018</p>
-                <p>License: MIT</p>
+                <p class="intro-author">Warwick Molloy<br>
+                (c) Copyright 2018<br>
+                License: MIT</p>
             </div>
         </div>
 
@@ -181,6 +190,67 @@
                 </div>
             </div>
 
+            <div class="ui-task ui-task-collapsed" id="task-RemoveAttrib">
+                <div class="ui-task-header">
+                    <b><em>removeAttribute() to remove an Attribute</em></b>
+                    <button class="ui-accordian">+</button>
+                </div>
+                <button id="btn-task-removeAttrib" class="ui-task-button collapse-away">
+                    Apply
+                </button>
+                <div class="ui-task-description">
+                    Remove an attribute from an element. Perfect
+                    for when you want to remove a 'hidden' attribute
+                    to make an element visible again.
+                </div>
+                <div class="task-parameters collapse-away">
+                    <div class="label">_Element</div>
+                    <select name="parameter" id="removeTarget-type">
+                        <option value="div">"div"</option>
+                        <option value="h1">"h1"</option>
+                        <option value="p">"p"</option>
+                    </select>
+                    <div class="label">Attribute Name</div>
+                    <input class="text" id="removeAttributeName">
+                </div>
+                <div class="task-result collapse-away">
+                    // --- No output yet ---
+                </div>
+                <div class="ui-task-code collapse-away">
+                    code will go here
+                </div>
+            </div>
+
+            <div class="ui-task ui-task-collapsed" id="task-addClass">
+                <div class="ui-task-header">
+                    <b><em>Add a Class</em></b>
+                    <button class="ui-accordian">+</button>
+                </div>
+                <button id="btn-task-addClass" class="ui-task-button collapse-away">
+                    Apply
+                </button>
+                <div class="ui-task-description">
+                    Add a class dynamically to an element
+                    so that pre-defined styling can be applied.
+                    This can be used to trigger animation.
+                </div>
+                <div class="task-parameters collapse-away">
+                    <div class="label">_Element</div>
+                    <select name="parameter" id="addClassTarget-elem">
+                        <option value="div">"div"</option>
+                        <option value="h1">"h1"</option>
+                        <option value="p">"p"</option>
+                    </select>
+                    <div class="label">Class Name</div>
+                    <input class="text" id="addClassName">
+                </div>
+                <div class="task-result collapse-away">
+                    // --- No output yet ---
+                </div>
+                <div class="ui-task-code collapse-away">
+                    code will go here
+                </div>
+            </div>
         </div>
 
     </div>
