@@ -7,10 +7,10 @@
 
 function updateOptionChoices() {
   var selectToUpdate = [
-    'appendElement-type', 'hideElement-type',
-    'askElement-type', 'removeTarget-type',
-    'addClassTarget-elem', 'removeClassTarget-elem',
-    'addEventListener-elem'
+    'appendElement-type', 'removeElement-elem',
+    'hideElement-type', 'askElement-type',
+    'removeTarget-type', 'addClassTarget-elem',
+    'removeClassTarget-elem', 'addEventListener-elem'
   ]
   for(var idSelect of selectToUpdate) {
     var selectElement = dom.findElement({id:idSelect})
@@ -21,6 +21,7 @@ function updateOptionChoices() {
 function setupInputChangeObservers() {
   setTaskInnerHtmlChangeObserver()
   setTaskEvalInputValueChangeObserver()
+  setTaskRemoveElementChangeObserver()
   setTaskSetAttribChangeObserver()
   setTaskGetAttribChangeObserver()
   setTaskRemoveAttribChangeObserver()
@@ -33,7 +34,7 @@ function setupResetDemoHtmlButton() {
   dom.buttonOn({
     event: dom.event.CLICK,
     id: 'resetDemo',
-    handler: resetDemoHtml
+    handler: function() { location.reload() }
   })
 }
 
@@ -41,6 +42,7 @@ function setupUiTaskButtons() {
   setupResetDemoHtmlButton()
   setupTaskInnerHtmlButton()
   setupTaskCreateAppendButton()
+  setupTaskRemoveElementButton()
   setupTaskSetAttribButton()
   setupTaskGetAttribButton()
   setupTaskRemoveAttribButton()

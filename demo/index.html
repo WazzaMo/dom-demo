@@ -12,6 +12,7 @@
     <script src="domdemo-util.js"></script>
     <script src="domdemo-innerHtml.js"></script>
     <script src="domdemo-createAppend.js"></script>
+    <script src="domdemo-removeElement.js"></script>
     <script src="domdemo-setAttribute.js"></script>
     <script src="domdemo-getAttribute.js"></script>
     <script src="domdemo-removeAttribute.js"></script>
@@ -135,6 +136,37 @@
                     var node = document.createElement( _Type )<br>
                     node.innerText = _Text<br>
                     _Element.appendChild(node)<br>
+                </div>
+            </div>
+
+            <div class="ui-task ui-task-collapsed" id="task-RemoveElement">
+                <div class="ui-task-header">
+                    <b><em>Remove an Element</em></b>
+                    <button class="ui-accordian">+</button>
+                </div>
+                <button id="btn-task-removeElement" class="ui-task-button collapse-away">
+                    Apply
+                </button>
+                <div class="ui-task-description">
+                    Remove an element from the DOM completely.
+                    Hiding an element is more common than removing
+                    an element but this could be used to dynamically
+                    grow a list of options in a select tag for
+                    a dynamic drop-down menu.
+                </div>
+                <div class="task-parameters collapse-away">
+                    <div class="label">_Element</div>
+                    <select name="parameter" id="removeElement-elem">
+                        <option value="div">"div"</option>
+                        <option value="h1">"h1"</option>
+                        <option value="p">"p"</option>
+                    </select>
+                </div>
+                <div class="task-result collapse-away">
+                    // --- No output yet ---
+                </div>
+                <div class="ui-task-code collapse-away">
+                    code will go here
                 </div>
             </div>
 
