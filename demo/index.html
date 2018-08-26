@@ -17,6 +17,7 @@
     <script src="domdemo-removeAttribute.js"></script>
     <script src="domdemo-addClass.js"></script>
     <script src="domdemo-removeClass.js"></script>
+    <script src="domdemo-addEventListener.js"></script>
     <script src="domdemo.js"></script>
 </head>
 <body>
@@ -282,6 +283,39 @@
                     </select>
                     <div class="label">Class Name</div>
                     <input class="text" id="removeClassName">
+                </div>
+                <div class="task-result collapse-away">
+                    // --- No output yet ---
+                </div>
+                <div class="ui-task-code collapse-away">
+                    code will go here
+                </div>
+            </div>
+
+            <div class="ui-task ui-task-collapsed" id="task-addEventListener">
+                <div class="ui-task-header">
+                    <b><em>Add Event Listener</em></b>
+                    <button class="ui-accordian">+</button>
+                </div>
+                <button id="btn-task-addListener" class="ui-task-button collapse-away">
+                    Apply
+                </button>
+                <div class="ui-task-description">
+                    Add an event listener to an element so a JavaScript
+                    function is called to handle the event.
+                    The primary event to handle would be 'click' but
+                    many others exist.
+                </div>
+                <div class="task-parameters collapse-away">
+                    <div class="label">_Element</div>
+                    <select name="parameter" id="addEventListener-elem">
+                        <option value="div">"div"</option>
+                        <option value="h1">"h1"</option>
+                        <option value="p">"p"</option>
+                    </select>
+                    <div class="label">Event Name</div>
+                    <select id="addEventName">
+                    </select>
                 </div>
                 <div class="task-result collapse-away">
                     // --- No output yet ---
