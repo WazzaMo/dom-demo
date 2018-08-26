@@ -15,7 +15,8 @@ body {
     display: grid;
     grid-template: 
         "intro intro" auto
-        "demo ui" auto/ 7fr 5fr;
+        "demo ui" 700px
+        / 7fr 5fr;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     min-width: 1020px;
 }
@@ -27,14 +28,17 @@ body {
     justify-content: space-between;
 }
 
+h1.intro-text {
+    margin: 20px 0px;
+}
+
 .intro-text {
     background-color: #585050;
     border-radius: 5px;
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    margin:5px;
-    padding:5px;
-    width: 57%;
+    margin: 5px;
+    padding: 0px 10px;
 }
 
 .intro-author {
@@ -46,7 +50,16 @@ body {
     text-align: center;
     vertical-align: bottom;
     margin:5px;
-    padding:5px;
+    padding: 2px 10px;
+    width: 250px;
+    text-align: center;
+}
+
+p.intro-author {
+    margin: 30px 0px;
+    padding: 10px 0;
+    background-color: #113;
+    width: 200px;
 }
 
 .demo {
@@ -92,6 +105,7 @@ body {
     color: white;
     margin: 5px;
     padding:5px;
+    overflow-y: scroll;
 }
 
 .ui-task {
