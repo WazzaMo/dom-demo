@@ -16,6 +16,7 @@
     <script src="domdemo-getAttribute.js"></script>
     <script src="domdemo-removeAttribute.js"></script>
     <script src="domdemo-addClass.js"></script>
+    <script src="domdemo-removeClass.js"></script>
     <script src="domdemo.js"></script>
 </head>
 <body>
@@ -45,6 +46,11 @@
                 <p class="intro-author">Warwick Molloy<br>
                 (c) Copyright 2018<br>
                 License: MIT</p>
+                <p>
+                    <a class="intro-author" href="https://github.com/WazzaMo/dom-demo">
+                        GitHub Project
+                    </a>
+                </p>
             </div>
         </div>
 
@@ -251,8 +257,41 @@
                     code will go here
                 </div>
             </div>
-        </div>
 
+            <div class="ui-task ui-task-collapsed" id="task-removeClass">
+                <div class="ui-task-header">
+                    <b><em>Remove a Class</em></b>
+                    <button class="ui-accordian">+</button>
+                </div>
+                <button id="btn-task-removeClass" class="ui-task-button collapse-away">
+                    Apply
+                </button>
+                <div class="ui-task-description">
+                    Remove a class dynamically from an element
+                    so that pre-defined styling can be removed.
+                    Normally used to revert an element to its
+                    normal styling.
+                    This can be used to trigger animation.
+                </div>
+                <div class="task-parameters collapse-away">
+                    <div class="label">_Element</div>
+                    <select name="parameter" id="removeClassTarget-elem">
+                        <option value="div">"div"</option>
+                        <option value="h1">"h1"</option>
+                        <option value="p">"p"</option>
+                    </select>
+                    <div class="label">Class Name</div>
+                    <input class="text" id="removeClassName">
+                </div>
+                <div class="task-result collapse-away">
+                    // --- No output yet ---
+                </div>
+                <div class="ui-task-code collapse-away">
+                    code will go here
+                </div>
+            </div>
+
+        </div>
     </div>
 </body>
 </html>
