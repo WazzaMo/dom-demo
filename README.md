@@ -2,7 +2,7 @@
 
 An interactive DOM Demo.
 
-[Try it Out](./src)
+[Try it Out](./demo)
 
 Features:
 - Demonstration Formatted Output
